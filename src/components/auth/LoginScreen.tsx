@@ -5,6 +5,11 @@ import { startLogin, startRegister } from '../../actions/auth'
 import { useForm } from '../../hooks/useForm'
 import './login.css'
 
+type LoginForm = {
+  lEmail: string
+  lPassword: string
+}
+
 export const LoginScreen = () => {
   const dispatch = useDispatch()
 
@@ -13,9 +18,9 @@ export const LoginScreen = () => {
     lPassword: '',
   })
 
-  const { lEmail, lPassword } = formLoginValues
+  const { lEmail, lPassword } = formLoginValues as LoginForm
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     dispatch(startLogin(lEmail, lPassword))
   }
@@ -29,7 +34,7 @@ export const LoginScreen = () => {
 
   const { rEmail, rName, rPassword1, rPassword2 } = formRegisterValues
 
-  const handleRegister = (e) => {
+  const handleRegister = (e: { preventDefault: () => void }) => {
     e.preventDefault()
 
     if (rPassword1 !== rPassword2) {

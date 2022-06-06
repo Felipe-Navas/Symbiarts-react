@@ -1,6 +1,5 @@
 export const types = {
-
-  // eventLogout: '[auth] Logout event',
+  eventLogout: '[auth] Logout event',
   // eventStartAddNew: '[event] Start add new',
   // eventAddNew: '[event] Add new',
   // eventSetActive: '[event] Set active',

@@ -2,7 +2,7 @@ import { types } from '../types/types'
 import { fetchWithoutToken, fetchWithToken } from '../helpers/fetch'
 import Swal from 'sweetalert2'
 
-export const startLogin = (email, password) => {
+export const startLogin = (email: string, password: string) => {
   return async (dispatch) => {
     const response = await fetchWithoutToken(
       'auth',
@@ -13,7 +13,7 @@ export const startLogin = (email, password) => {
 
     if (body.ok) {
       localStorage.setItem('token', body.token)
-      localStorage.setItem('token-init-date', new Date().getTime())
+      localStorage.setItem('token-init-date', new Date().getTime().toString())
 
       dispatch(
         login({
@@ -38,7 +38,7 @@ export const startRegister = (email, name, password) => {
 
     if (body.ok) {
       localStorage.setItem('token', body.token)
-      localStorage.setItem('token-init-date', new Date().getTime())
+      localStorage.setItem('token-init-date', new Date().getTime().toString())
 
       dispatch(
         login({
@@ -59,7 +59,7 @@ export const startChecking = () => {
 
     if (body.ok) {
       localStorage.setItem('token', body.token)
-      localStorage.setItem('token-init-date', new Date().getTime())
+      localStorage.setItem('token-init-date', new Date().getTime().toString())
 
       dispatch(
         login({
