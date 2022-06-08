@@ -3,7 +3,7 @@ import { fetchWithoutToken, fetchWithToken } from '../helpers/fetch'
 import Swal from 'sweetalert2'
 
 export const startLogin = (email: string, password: string) => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     const response = await fetchWithoutToken(
       'auth',
       { email, password },
@@ -27,8 +27,8 @@ export const startLogin = (email: string, password: string) => {
   }
 }
 
-export const startRegister = (email, name, password) => {
-  return async (dispatch) => {
+export const startRegister = (email: string, name: string, password: string) => {
+  return async (dispatch: any) => {
     const response = await fetchWithoutToken(
       'auth/new',
       { email, name, password },
@@ -53,7 +53,7 @@ export const startRegister = (email, name, password) => {
 }
 
 export const startChecking = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     const response = await fetchWithToken('auth/renew')
     const body = await response.json()
 
@@ -73,7 +73,7 @@ export const startChecking = () => {
   }
 }
 
-const login = (user) => ({
+const login = (user: {uid: string, name: string}) => ({
   type: types.authLogin,
   payload: user,
 })
@@ -83,7 +83,7 @@ const checkingFinish = () => ({
 })
 
 export const startLogout = () => {
-  return (dispatch) => {
+  return (dispatch: any) => {
     localStorage.clear()
     dispatch(eventLogout())
     dispatch(logout())
