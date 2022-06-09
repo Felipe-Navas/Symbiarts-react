@@ -1,6 +1,11 @@
-import React from 'react'
-import { Navbar } from './components/ui/Navbar'
+import { Provider } from 'react-redux'
+import { SymbiartsRouter } from './router/SymbiartsRouter'
+import { store } from './store/store'
 
 export const SymbiartsApp = () => {
-  return <Navbar />
+  return (
+    <Provider store={store}>
+      <SymbiartsRouter />
+    </Provider>
+  )
 }

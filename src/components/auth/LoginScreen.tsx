@@ -1,13 +1,20 @@
-import React from 'react'
+import { ChangeEventHandler } from 'react';
 import { useDispatch } from 'react-redux'
 import Swal from 'sweetalert2'
-import { startLogin, startRegister } from '../../actions/auth'
 import { useForm } from '../../hooks/useForm'
+import { startLogin, startRegister } from '../../actions/auth'
 import './login.css'
 
 type LoginForm = {
   lEmail: string
   lPassword: string
+}
+
+type RegisterForm = {
+  rName: string
+  rEmail: string
+  rPassword1: string
+  rPassword2: string
 }
 
 export const LoginScreen = () => {
@@ -22,7 +29,7 @@ export const LoginScreen = () => {
 
   const handleLogin = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    dispatch(startLogin(lEmail, lPassword))
+    dispatch(startLogin(lEmail, lPassword) as any)
   }
 
   const [formRegisterValues, handleRegisterInputChange] = useForm({
@@ -32,7 +39,7 @@ export const LoginScreen = () => {
     rPassword2: '123456',
   })
 
-  const { rEmail, rName, rPassword1, rPassword2 } = formRegisterValues
+  const { rEmail, rName, rPassword1, rPassword2 } = formRegisterValues as RegisterForm
 
   const handleRegister = (e: { preventDefault: () => void }) => {
     e.preventDefault()
@@ -41,7 +48,7 @@ export const LoginScreen = () => {
       return Swal.fire('Error', 'Password do not match', 'error')
     }
 
-    dispatch(startRegister(rEmail, rName, rPassword1))
+    dispatch(startRegister(rEmail, rName, rPassword1) as any)
   }
 
   return (
@@ -57,7 +64,7 @@ export const LoginScreen = () => {
                 placeholder="Email"
                 name="lEmail"
                 value={lEmail}
-                onChange={handleLoginInputChange}
+                onChange={handleLoginInputChange as ChangeEventHandler<HTMLInputElement>}
               />
             </div>
             <div className="form-group">
@@ -67,7 +74,7 @@ export const LoginScreen = () => {
                 placeholder="Password"
                 name="lPassword"
                 value={lPassword}
-                onChange={handleLoginInputChange}
+                onChange={handleLoginInputChange as ChangeEventHandler<HTMLInputElement>}
               />
             </div>
             <div className="form-group">
@@ -86,7 +93,7 @@ export const LoginScreen = () => {
                 placeholder="Name"
                 name="rName"
                 value={rName}
-                onChange={handleRegisterInputChange}
+                onChange={handleRegisterInputChange as ChangeEventHandler<HTMLInputElement>}
               />
             </div>
             <div className="form-group">
@@ -96,7 +103,7 @@ export const LoginScreen = () => {
                 placeholder="Email"
                 name="rEmail"
                 value={rEmail}
-                onChange={handleRegisterInputChange}
+                onChange={handleRegisterInputChange as ChangeEventHandler<HTMLInputElement>}
               />
             </div>
             <div className="form-group">
@@ -106,7 +113,7 @@ export const LoginScreen = () => {
                 placeholder="Password"
                 name="rPassword1"
                 value={rPassword1}
-                onChange={handleRegisterInputChange}
+                onChange={handleRegisterInputChange as ChangeEventHandler<HTMLInputElement>}
               />
             </div>
 
@@ -117,7 +124,7 @@ export const LoginScreen = () => {
                 placeholder="Confirm password"
                 name="rPassword2"
                 value={rPassword2}
-                onChange={handleRegisterInputChange}
+                onChange={handleRegisterInputChange as ChangeEventHandler<HTMLInputElement>}
               />
             </div>
 

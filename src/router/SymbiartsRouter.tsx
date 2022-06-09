@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { SymbiartsApp } from '../SymbiartsApp'
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
 
 import { startChecking } from '../actions/auth'
 import { LoginScreen } from '../components/auth/LoginScreen'
+import { Navbar } from '../components/ui/Navbar'
 
 export const SymbiartsRouter = () => {
   const dispatch = useDispatch()
-  const { checking, uid } = useSelector((state) => state.auth)
+  const { checking, uid } = useSelector((state: any) => state.auth)
 
   useEffect(() => {
-    dispatch(startChecking())
+    dispatch(startChecking() as any)
   }, [dispatch])
 
   if (checking) {
@@ -24,7 +24,6 @@ export const SymbiartsRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          exact
           path="/login"
           element={
             <PublicRoute uid={uid}>
@@ -33,11 +32,10 @@ export const SymbiartsRouter = () => {
           }
         />
         <Route
-          exact
           path="/*"
           element={
             <PrivateRoute uid={uid}>
-              <SymbiartsApp />
+              <Navbar />
             </PrivateRoute>
           }
         />
