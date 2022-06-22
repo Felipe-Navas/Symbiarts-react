@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
+import { MainRouter } from './MainRouter'
 
 import { startChecking } from '../actions/auth'
 import { LoginScreen } from '../components/auth/LoginScreen'
-import { Navbar } from '../components/ui/Navbar'
 
 export const SymbiartsRouter = () => {
   const dispatch = useDispatch()
@@ -35,7 +35,7 @@ export const SymbiartsRouter = () => {
           path="/*"
           element={
             <PrivateRoute uid={uid}>
-              <Navbar />
+              <MainRouter />
             </PrivateRoute>
           }
         />

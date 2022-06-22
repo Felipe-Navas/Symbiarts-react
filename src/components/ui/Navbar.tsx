@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
+import { NavLink } from 'react-router-dom'
 import { startLogout } from '../../actions/auth';
 
 
@@ -16,7 +17,7 @@ export const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg fixed-top bg-dark">
-        <a className="navbar-brand" href="/">S<span className="small">ymbiarts</span></a>
+        <NavLink className="navbar-brand" to="/">S<span className="small">ymbiarts</span></NavLink>
         <span className="navbar-brand text-white">{name}</span>
 
         <form className="d-flex" role="search">
@@ -24,7 +25,7 @@ export const Navbar = () => {
           <button className="btn btn-outline-success ml-1" type="submit">Search</button>
         </form>
 
-        <a className="navbar-brand ml-1" href="/">My account</a>
+        <NavLink className="navbar-brand ml-1" to='/account'>My account</NavLink>
         <a className="navbar-brand" href="/">My artworks</a>
         <a className="navbar-brand" href="/">New artwork</a>
         <a className="navbar-brand" href="/">Purchases</a>
