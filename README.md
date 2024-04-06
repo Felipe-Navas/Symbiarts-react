@@ -1,52 +1,61 @@
-# README
+# Symbiarts React App
 
-This README would normally document whatever steps are necessary to get your application up and running.
+A React App for Symbiarts
 
-### What is this repository for?
+## Description
 
-- Quick summary
-  - Symbiarts
-- Version: 1.0
-- [Author](https://www.linkedin.com/in/felipenavaslederhos)
+In this app I use a backend server (symbiarts-node) with different endpoints.
 
-### How do I get set up?
+## Getting Started
 
-- Summary of set up
+### Dependencies
 
-  - `yarn`
-  - `npm install`
+- `npm`
+- `node`
+- Backend Server: Here is the example that I use in this repository: https://github.com/Felipe-Navas/symbiarts-node
 
-- How to run the app?
+### Installing
 
-  - `yarn start`
-  - `npm start`
+- Clone the repository and install dependencies:
 
-- How to run the tests?
+```
+git clone https://github.com/Felipe-Navas/symbiarts-react.git && cd symbiarts-react && npm install
+```
 
-  - `yarn test`
-  - `npm test`
+- Configure your `.env` file in the root of the project and configure the `REACT_APP_API_URL` variable with the URL of the Backend Server
 
-- Dependencies
-  - "@testing-library/jest-dom": "^5.16.4",
-  - "@testing-library/react": "^13.3.0",
-  - "@testing-library/user-event": "^13.5.0",
-  - "@types/jest": "^27.5.1",
-  - "@types/node": "^16.11.36",
-  - "@types/react": "^18.0.9",
-  - "@types/react-dom": "^18.0.5",
-  - "react": "^18.1.0",
-  - "react-dom": "^18.1.0",
-  - "react-scripts": "5.0.1",
-  - "typescript": "^4.7.2",
-  - "web-vitals": "^2.1.4"
+### Executing program
 
-### Contribution guidelines
+```
+npm start
+```
 
-- Writing tests
-- Code review
-- Other guidelines
+Preview of the principal page to login:
 
-### Who do I talk to?
+<img width="350" src="assets/LoginPreview.png" alt="Preview of the principal page to login" />
 
-- Repo owner or admin
-- Other community or team contact
+Preview of the main screen:
+
+<img width="350" src="assets/MainPreview.png" alt="Preview of the main screen" />
+
+### Running tests
+
+```
+npm test
+```
+
+## Authors
+
+- [Felipe Navas](https://www.linkedin.com/in/felipenavaslederhos) - [Email](mailto:felipenavas.itec@gmail.com?subject=[GitHub]%20symbiarts-react)
+
+## Contributing
+
+1. Fork it (<https://github.com/Felipe-Navas/symbiarts-react/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the [MIT License] - see the LICENSE file for details
